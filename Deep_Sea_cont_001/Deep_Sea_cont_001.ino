@@ -27,6 +27,12 @@ Servo dolphinTail;
 Servo diver;
 Servo jellyFishLights;
 
+int diverServoPin = 12;
+int dolphinServoPin = 11;
+int red = 11;
+int green = 10;
+int blue = 6; 
+
 //Team 6
 Servo Dolphin;
 Servo Turtle;
@@ -143,10 +149,10 @@ void dolphinTailSetupFunction () {
   int dolphinTMinPos = 30;
   int dolphinTMaxPos = 150;
   int dolphinTIncrement = 1; 
-  int dolphinServoPin = 11;
-    dolphinTail.attach(dolphinServoPin);
+  dolphinTail.attach(dolphinServoPin);
   }
-  void dolphinTailFunction () {
+  
+void dolphinTailFunction () {
   dolphinTail.write(30);
   delay(500);
   dolphinTail.write(150);
@@ -160,7 +166,6 @@ void diverSetupFunction (){
   int minPos = 30;
   int maxPos = 150;
   int increment = 1;
-  int diverServoPin = 12;
   diver.attach(diverServoPin);
 }
  void diverFunction () {
@@ -173,18 +178,11 @@ void diverSetupFunction (){
 
 //jellyfish lights
 void jellyFishLightsSetupFunction () {
-  int red = 11;
-  int green = 10;
-  int blue = 6; 
   pinMode(red,OUTPUT); 
   pinMode(green,OUTPUT);
   pinMode(blue,OUTPUT); 
 }
 void jellyFishLightsFunction (){
-  int red = 11;
-  int green = 10;
-  int blue = 6;
-  
   analogWrite (red, HIGH); 
   analogWrite (green, LOW);
   analogWrite (blue, LOW);
