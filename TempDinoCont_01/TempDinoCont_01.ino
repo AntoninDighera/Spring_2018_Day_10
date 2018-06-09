@@ -20,9 +20,9 @@ int incrementEgg;
 int incrementLeaves;
 int incrementNeck;
 
-const int eggServPin = 0;
-const int leavesServPin = 0; 
-const int neckServPin = 0; 
+const int eggServPin = 3;
+//const int leavesServPin = 0; 
+const int neckServPin = 5; 
  
 //Team 2 
 
@@ -30,9 +30,9 @@ Servo dinofight;
 Servo dinofly;
 Servo dinodrinks;
 
-int FightservPin = 11;
-int FlyservPin = 10;
-int servPin = 9;
+//int FightservPin = 11;
+int FlyservPin = 6;
+int servPin = 9; //drink
 
 int increment = 1;
 int Flyincrement = 2;
@@ -55,8 +55,8 @@ int FlymaxPos = 500;
 Servo servo2;
 Servo servo3;
 
-const int dino_pin = 2;
-const int tree_pin = 1;
+const int dino_pin = 10;
+const int tree_pin = 11;
 
 int Team3DelayTime = 100;
 
@@ -69,11 +69,11 @@ void setup() {
 
   //Team 1
   egg.attach(eggServPin);
-  leaves.attach(leavesServPin);
+//  leaves.attach(leavesServPin);
   neck.attach(neckServPin);
   
   // Team 2 
-  dinofight.attach(FightservPin);
+//  dinofight.attach(FightservPin);
   dinofly.attach(FlyservPin);
   dinodrinks.attach(servPin);
   
@@ -88,20 +88,20 @@ void setup() {
 void loop () { 
   //Team 1 
   eggUp();
-  leavesRustleUp();
+//  leavesRustleUp();
   eggDown();
-  leavesRustleDown();
+//  leavesRustleDown();
   neckForward();
-  leavesRustleUp();
+//  leavesRustleUp();
   neckBackward();
-  leavesRustleDown();  
+//  leavesRustleDown();  
   
-  //Team 2 
+/*  //Team 2 
   for (int Fightpos = FightminPos; Fightpos < FightmaxPos; Fightpos += Fightincrement ) {
     dinofight.write(Fightpos);
     delay(FightdelayTime);
   }
-  
+*/  
   for (int Flypos = FlyminPos; Flypos < FlymaxPos; Flypos += Flyincrement ) {
     dinofly.write(Flypos);
     delay(FlydelayTime);

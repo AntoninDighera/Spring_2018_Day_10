@@ -14,33 +14,35 @@ int delayTime = 100;
 //Team 4
 Servo SubUpAndDown;
 Servo SquidOrbit;
-Servo BubblesMove;
-
-int i = 1;    //counter
+//Servo BubblesMove;
 
 int submarinePin = 10;      //Pin it's hooked up to on Arduino 
 int squidPin = 9;
-int bubblesPin = 7;
+//int bubblesPin = 7;
  
 //Team 5
 Servo dolphinTail;
 Servo diver;
-Servo jellyFishLights;
+//Servo jellyFishLights;
 
 int diverServoPin = 12;
 int dolphinServoPin = 11;
-int red = 11;
-int green = 10;
-int blue = 6; 
 
 //Team 6
 Servo Dolphin;
 Servo Turtle;
-Servo Seaweed;
+//Servo Seaweed;
 
 int DolphinPin = 3;
 int TurtlePin = 6;
-int SeaweedPin = 9;
+//int SeaweedPin = 9;
+
+//Team 4 Global Vars
+int i = 1;    //counter
+ 
+//Team 5 Global Vars
+
+//Team 6 Global Vars
 
 void setup() { 
   //General 
@@ -48,17 +50,16 @@ void setup() {
   //Team 4
   SubUpAndDown.attach(submarinePin);   
   SquidOrbit.attach(squidPin);   
-  BubblesMove.attach(bubblesPin);  
+//  BubblesMove.attach(bubblesPin);  
   
   //Team 5
   dolphinTailSetupFunction (); 
-  jellyFishLightsSetupFunction ();
   diverSetupFunction ();
   
   //Team 6
   Dolphin.attach(DolphinPin);
   Turtle.attach(TurtlePin);
-  Seaweed.attach(SeaweedPin);
+//  Seaweed.attach(SeaweedPin);
 }
 
 
@@ -72,12 +73,11 @@ void loop () {
   moveSquid();
   delay(retDelay);
   
-  moveBubbles();
-  delay(retDelay);
+//  moveBubbles();
+//  delay(retDelay);
   
   //Team 5 
   dolphinTailFunction (); 
-  jellyFishLightsFunction ();
   diverFunction ();
   
   //Team 6
@@ -119,23 +119,23 @@ void moveSquid()
   }
 }
 
-void moveBubbles() 
-{
-  int i = 1;    //counter
-  int delayTimeBubbles = 50;  //Delay to allow gears to do things                                                                                                                                                                                                                         
-  int retDelayBubbles= 10;
-  int minPosBubbles= 30;      //30 degrees or it dies 
-  int maxPosBubbles = 150;     //150 degrees or it DIES
-  for (int pos = minPosBubbles; pos < maxPosBubbles; pos += i)
-  // int pos = 30 degree; as long as position less than 150; pos + 1
-  
-  {
-    //Do THING
-    BubblesMove.write(pos);
-    delay(delayTime);
-  }
-
-} 
+//void moveBubbles() 
+//{
+//  int i = 1;    //counter
+//  int delayTimeBubbles = 50;  //Delay to allow gears to do things                                                                                                                                                                                                                         
+//  int retDelayBubbles= 10;
+//  int minPosBubbles= 30;      //30 degrees or it dies 
+//  int maxPosBubbles = 150;     //150 degrees or it DIES
+//  for (int pos = minPosBubbles; pos < maxPosBubbles; pos += i)
+//  // int pos = 30 degree; as long as position less than 150; pos + 1
+//  
+//  {
+//    //Do THING
+//    BubblesMove.write(pos);
+//    delay(delayTime);
+//  }
+//
+//} 
 
 
 // Team 5 
@@ -176,33 +176,6 @@ void diverSetupFunction (){
   
  }
 
-//jellyfish lights
-void jellyFishLightsSetupFunction () {
-  pinMode(red,OUTPUT); 
-  pinMode(green,OUTPUT);
-  pinMode(blue,OUTPUT); 
-}
-void jellyFishLightsFunction (){
-  analogWrite (red, HIGH); 
-  analogWrite (green, LOW);
-  analogWrite (blue, LOW);
-    
-  delay(200);
-
-  analogWrite (red, HIGH); 
-  analogWrite (green, LOW);
-  analogWrite (blue, HIGH);
-    
-  delay(200);
-
-  analogWrite (red, LOW); 
-  analogWrite (green, HIGH);
-  analogWrite (blue, HIGH);
-  delay(200);
-}
-
-
-
 // Team 6
 //
 //
@@ -234,18 +207,18 @@ void moveTurtle() {
   }
 }
   
-void moveSeaweed() {
-  int increment = 1;
-  int minPos = 30;
-  int maxPos = 80;
-  int delayTime = 20;
-  for (int pos = minPos; pos < maxPos; pos += increment) {
-   //pos > maxPos; pos -= increment
-  Serial.print("seaweed");
-  Seaweed.write(pos);
-  delay(delayTime);
-  //int pos = minPos;
-  }
-}
+//void moveSeaweed() {
+//  int increment = 1;
+//  int minPos = 30;
+//  int maxPos = 80;
+//  int delayTime = 20;
+//  for (int pos = minPos; pos < maxPos; pos += increment) {
+//   //pos > maxPos; pos -= increment
+//  Serial.print("seaweed");
+//  Seaweed.write(pos);
+//  delay(delayTime);
+//  //int pos = minPos;
+//  }
+//}
 
 
